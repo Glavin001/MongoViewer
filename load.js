@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 // Dependencies
 var nconf = require('nconf');
 var mongodb = require('mongodb');

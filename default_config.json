@@ -1,8 +1,11 @@
 {
     "server": {
-        "port": 8080
+        "port": 8080,
+        "CORS": 1,
+        "logger": 0
     },
     "mongo": {
+        "host": "localhost",
         "port": 27017,
         "database": "mongoviewer"
     }

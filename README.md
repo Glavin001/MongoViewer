@@ -64,9 +64,10 @@ Uses [nconf](https://github.com/flatiron/nconf).
 See the default configuration file at [default_config.json](https://github.com/Glavin001/MongoViewer/blob/master/default_config.json).
 
 Alternatively you can use additional command line arguments:
-- `--server:port 8080`
-- `--mongo:port 27017`
-- `--mongo:database mongoviewer`
+- `--server:port 8080` - Default `8080`.
+- `--server:CORS 1` - Default `true` (`1`), `false` is `0`.
+- `--mongo:port 27017` - Default `27017`
+- `--mongo:database mongoviewer` - Default is `mongoviewer`.
 
 For example:
 
@@ -87,7 +88,7 @@ node index.js --server:port 8081 --mongo:database testDb
 See [db.collection.find](http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#find).
 
 ```
-/api/v1/:collection/find
+GET /api/v1/:collection/find
 ```
 
 ##### Query Parameters:
@@ -99,7 +100,7 @@ See [db.collection.find](http://mongodb.github.io/node-mongodb-native/api-genera
 See [db.collection.findOne](http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#findone).
 
 ```
-/api/v1/:collection/findOne
+GET /api/v1/:collection/findOne
 ```
 
 ##### Query Parameters:
@@ -111,7 +112,7 @@ See [db.collection.findOne](http://mongodb.github.io/node-mongodb-native/api-gen
 See [db.collection.aggregate](http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#aggregate).
 
 ```
-/api/v1/:collection/aggregate
+GET /api/v1/:collection/aggregate
 ```
 
 ##### Query Parameters:

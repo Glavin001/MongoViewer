@@ -4,6 +4,7 @@
 var express = require('express');
 var mongodb = require('mongodb');
 var nconf = require('nconf');
+var cors = require('cors');
 
 // Configuration
 nconf.argv()
@@ -13,10 +14,28 @@ nconf.argv()
 // Create your server
 var app = express();
 
+// CORS
+if (nconf.get('server:CORS')) {
+    console.log("CORS enabled.");
+    app.use(cors());
+}
+else {
+    console.log("CORS disabled.");
+}
+
+// Config Express server
+if (nconf.get('server:logger')) {
+    console.log("Express Logger enabled.");
+    app.use(express.logger());
+} else {
+    console.log("Express Logger disabled.");
+}
+
+
 // Connect to MongoDB
 var MongoClient = mongodb.MongoClient;
 
-MongoClient.connect("mongodb://localhost:"+nconf.get('mongo:port')+"/"+nconf.get('mongo:database'), function(err, db) {
+MongoClient.connect("mongodb://"+nconf.get('mongo:host')+":"+nconf.get('mongo:port')+"/"+nconf.get('mongo:database'), function(err, db) {
 
     if (err) {
         console.error(err);
@@ -24,10 +43,12 @@ MongoClient.connect("mongodb://localhost:"+nconf.get('mongo:port')+"/"+nconf.get
         return;
     }
 
-    // Config Express server
-    app.use(express.logger());
+    console.log('Connected to MongoDB at '+
+        nconf.get('mongo:host')+":"+
+        nconf.get('mongo:port')+" with database '"+
+        nconf.get('mongo:database')+"'.");
 
-    // Add static files
+    // Add static files, if available.
     app.use(express.static(__dirname+'/public'));
     app.use(express.static(__dirname+'/bower_components'));
 
