@@ -123,8 +123,16 @@ GET /api/v1/:collection/aggregate
 
 ### Load the example dataset, `discreteData`
 
-```
+```bash
 node load.js
+```
+
+### Load the example dataset, `zips`
+
+From MongoDB example dataset: http://docs.mongodb.org/manual/tutorial/aggregation-zip-code-data-set/
+
+```bash
+mongoimport -db mongoviewer -c zips < example_data/zips.json 
 ```
 
 ### Start the Server
