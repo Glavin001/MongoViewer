@@ -3,6 +3,8 @@ MongoViewer
 
 > MongoDB + Node.js + Express + D3
 
+![screenshot](screenshots/main.png)
+
 ## Installation
 
 ```bash
@@ -20,7 +22,7 @@ bower install
 
 #### `Find`
 
-See [db.collection.find](http://docs.mongodb.org/manual/reference/method/db.collection.find/).
+See [db.collection.find](http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#find).
 
 ```
 /api/v1/:collection/find
@@ -28,12 +30,11 @@ See [db.collection.find](http://docs.mongodb.org/manual/reference/method/db.coll
 
 ##### Query Parameters:
 - query
-- fields
 - options
 
 ### `FindOne`
 
-See [db.collection.findOne](http://docs.mongodb.org/manual/reference/method/db.collection.findOne/).
+See [db.collection.findOne](http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#findone).
 
 ```
 /api/v1/:collection/findOne
@@ -41,12 +42,11 @@ See [db.collection.findOne](http://docs.mongodb.org/manual/reference/method/db.c
 
 ##### Query Parameters:
 - query
-- fields
 - options
 
 ### `Aggregate`
 
-See [db.collection.aggregate](http://docs.mongodb.org/manual/reference/method/db.collection.aggregate/).
+See [db.collection.aggregate](http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#aggregate).
 
 ```
 /api/v1/:collection/aggregate
