@@ -1,0 +1,28 @@
+{
+  "name": "MongoViewer",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Glavin001/MongoViewer",
+  "authors": [
+    "Glavin Wiechert <glavin.wiechert@gmail.com>"
+  ],
+  "description": "MongoDB + Node.js + Express + D3",
+  "keywords": [
+    "mongodb",
+    "node",
+    "express",
+    "d3"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "nvd3": "~1.1.15-beta"
+  }
+}

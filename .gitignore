@@ -1,3 +1,10 @@
+# -------
+# Bower
+bower_components
+
+# -------
+# Node.js
+
 lib-cov
 *.seed
 *.log

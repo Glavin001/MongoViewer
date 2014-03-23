@@ -1,0 +1,9 @@
+{
+    "server": {
+        "port": 8080
+    },
+    "mongo": {
+        "port": 27017,
+        "database": "mongoviewer"
+    }
+}
