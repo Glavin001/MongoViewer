@@ -1,7 +1,9 @@
-MongoViewer
+MongoViewer [![NPM version](https://badge.fury.io/js/mongoviewer-server.png)](http://badge.fury.io/js/mongoviewer-server)
 ===========
 
 > MongoDB + Node.js + Express + D3
+
+[![NPM](https://nodei.co/npm/mongoviewer-server.png?downloads=true&stars=true)](https://nodei.co/npm/mongoviewer-server/)
 
 -----
 
@@ -21,20 +23,26 @@ Start your MongoViewer API Server:
 mongoviewer-server
 ```
 
+By default it will serve on port 8080: [http://localhost:8080/](http://localhost:8080/).
+
 See [configuration options](https://github.com/Glavin001/MongoViewer#configuration) for customizing your API server.
+
+Example customized:
+
+```bash
+mongoviewer-server --server:port 8081 --mongo:database testDb
+```
 
 See the [API documentation](https://github.com/Glavin001/MongoViewer#api) for more details.
 
-
-
 -----
+
+# Developing MongoViewer
 
 > MongoDB + Node.js + Express + D3
 
 ![screenshot](https://raw.githubusercontent.com/Glavin001/MongoViewer/master/screenshots/main.png)
 
-
-# Developing
 
 ## Installation
 
