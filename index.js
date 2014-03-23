@@ -54,7 +54,7 @@ MongoClient.connect("mongodb://"+nconf.get('mongo:host')+":"+nconf.get('mongo:po
 
     // Create REST API
     var queryToJson = function(query) {
-        console.log("query: ", query);
+        //console.log("query: ", query);
         var j = {};
         for (var k in query) {
             var temp = query[k];
@@ -66,8 +66,8 @@ MongoClient.connect("mongodb://"+nconf.get('mongo:host')+":"+nconf.get('mongo:po
                 try {
                     v = JSON.parse(temp);
                 } catch (err) {
-                    console.log(temp+" failed to parse");
-                    console.error(err);
+                    //console.log(temp+" failed to parse");
+                    //console.error(err);
                     v = query[k];
                 }
             }
@@ -87,7 +87,7 @@ MongoClient.connect("mongodb://"+nconf.get('mongo:host')+":"+nconf.get('mongo:po
                     var respCallback = function(json) {
                         return res.json(json);
                     };
-                    console.log(JSON.stringify(query));
+                    //console.log(JSON.stringify(query));
                     return callback && callback(collection, query, respCallback);
                 }
             });
