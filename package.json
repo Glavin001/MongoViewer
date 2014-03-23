@@ -1,6 +1,6 @@
 {
   "name": "mongoviewer-server",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "MongoDB + Node.js + Express + D3",
   "main": "index.js",
   "preferGlobal": true,

@@ -5,11 +5,13 @@ var express = require('express');
 var mongodb = require('mongodb');
 var nconf = require('nconf');
 var cors = require('cors');
+var path = require('path');
 
 // Configuration
+var configPath = path.resolve(__dirname, './default_config.json');
 nconf.argv()
        .env()
-       .file({ file: './default_config.json' });
+       .file({ file: configPath });
 
 // Create your server
 var app = express();
