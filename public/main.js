@@ -26,7 +26,7 @@ $(document).ready(function() {
                     key: title,
                     values: results
                 }];
-                //console.log(data);
+                console.log(data);
 
                 nv.addGraph(function() {
                   var chart = nv.models.discreteBarChart()
@@ -52,12 +52,177 @@ $(document).ready(function() {
 
     // Graph it!
     graph(
-        "#chart svg", 
+        "#charts svg#discreteBarDemo", 
         "Cumulative Return", 
         "discreteBar", 
         [ { "$project": {"_id":0, "label": 1, "value": 1} } ],
         {}
     );
+
+    // Zips 1
+    graph(
+        "#charts svg#zips1", 
+        "Zip Codes Example 1",
+        "zips",
+        [ 
+            { $group : { _id : "$state", totalPop : { $sum : "$pop" } } },
+            { $match : { totalPop : { $gte : 10*1000*1000 } } },
+            { $project: { _id : 0, label: "$_id", value: "$totalPop" } }
+        ],
+        {}
+    );
+
+    // Zips 2
+    graph(
+        "#charts svg#zips2", 
+        "Zip Codes Example 2",
+        "zips",
+        [ 
+            { $group :
+                { 
+                    _id : { state : "$state", city : "$city" },
+                    pop : { $sum : "$pop" } 
+                } 
+            },
+            { $group :
+                { 
+                    _id : "$_id.state",
+                    avgCityPop : { $avg : "$pop" } 
+                } 
+            },
+            { 
+                $project: { 
+                    _id : 0, 
+                    label: "$_id", 
+                    value: "$avgCityPop" 
+                } 
+            }
+        ],
+        {}
+    );
+
+    // Zips 3
+    graph(
+        "#charts svg#zips3", 
+        "Zip Codes Example 3",
+        "zips",
+        [ 
+            {
+                $group: {
+                    _id: {
+                        state: "$state",
+                        city: "$city"
+                    },
+                    pop: {
+                        $sum: "$pop"
+                    }
+                }
+            }, {
+                $sort: {
+                    pop: 1
+                }
+            }, {
+                $group: {
+                    _id: "$_id.state",
+                    biggestCity: {
+                        $last: "$_id.city"
+                    },
+                    biggestPop: {
+                        $last: "$pop"
+                    },
+                    smallestCity: {
+                        $first: "$_id.city"
+                    },
+                    smallestPop: {
+                        $first: "$pop"
+                    }
+                }
+            },
+
+            // the following $project is optional, and
+            // modifies the output format.
+
+            {
+                $project: {
+                    _id: 0,
+                    state: "$_id",
+                    biggestCity: {
+                        name: "$biggestCity",
+                        pop: "$biggestPop"
+                    },
+                    smallestCity: {
+                        name: "$smallestCity",
+                        pop: "$smallestPop"
+                    }
+                }
+            },
+
+            { $project: { _id : 0, label: "$state", value: "$biggestCity.pop" } }
+        ],
+        {}
+    );
+
+    // Zips 4
+    graph(
+        "#charts svg#zips4", 
+        "Zip Codes Example 4",
+        "zips",
+        [ 
+            {
+                $group: {
+                    _id: {
+                        state: "$state",
+                        city: "$city"
+                    },
+                    pop: {
+                        $sum: "$pop"
+                    }
+                }
+            }, {
+                $sort: {
+                    pop: 1
+                }
+            }, {
+                $group: {
+                    _id: "$_id.state",
+                    biggestCity: {
+                        $last: "$_id.city"
+                    },
+                    biggestPop: {
+                        $last: "$pop"
+                    },
+                    smallestCity: {
+                        $first: "$_id.city"
+                    },
+                    smallestPop: {
+                        $first: "$pop"
+                    }
+                }
+            },
+
+            // the following $project is optional, and
+            // modifies the output format.
+
+            {
+                $project: {
+                    _id: 0,
+                    state: "$_id",
+                    biggestCity: {
+                        name: "$biggestCity",
+                        pop: "$biggestPop"
+                    },
+                    smallestCity: {
+                        name: "$smallestCity",
+                        pop: "$smallestPop"
+                    }
+                }
+            },
+
+            { $project: { _id : 0, label: "$state", value: "$smallestCity.pop" } }
+        ],
+        {}
+    );
+
 
 });
 

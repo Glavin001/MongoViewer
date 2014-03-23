@@ -21,11 +21,12 @@
 
     <!-- Styles -->
     <style>
-        #chart {
-            height: 50%;
+        #charts {
+            height: 100%;
+            overflow: visible;
         }
-        #chart svg {
-            height: 50%;
+        #charts svg {
+            height: 500px;
         }
     </style>
 
@@ -40,8 +41,23 @@
           <p><a class="btn btn-primary btn-lg" role="button" href="https://github.com/Glavin001/MongoViewer" target="_blank">Learn more</a></p>
         </div>
         
-        <div id="chart" class="container">
-            <svg></svg>
+        <div id="charts" class="container">
+            <h3>Discrete Bar Demo</h3>
+            <svg id="discreteBarDemo"></svg>
+            
+            <h3>Zipcodes Demo</h3>
+            <h4>Return States with Populations above 10 Million</h4>
+            <svg id="zips1"></svg>
+
+            <h4>Return Average City Population by State</h4>
+            <svg id="zips2"></svg>
+
+            <h4>Return Largest Cities by State</h4>
+            <svg id="zips3"></svg>
+
+            <h4>Return Smallest Cities by State</h4>
+            <svg id="zips4"></svg>
+
         </div>
 
     </div>
