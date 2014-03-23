@@ -3,7 +3,7 @@ MongoViewer
 
 > MongoDB + Node.js + Express + D3
 
-![screenshot](screenshots/main.png)
+![screenshot](https://raw.githubusercontent.com/Glavin001/MongoViewer/master/screenshots/main.png)
 
 ## Installation
 
