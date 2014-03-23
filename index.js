@@ -31,15 +31,22 @@ MongoClient.connect("mongodb://localhost:"+nconf.get('mongo:port')+"/"+nconf.get
 
     // Create REST API
     var queryToJson = function(query) {
+        console.log("query: ", query);
         var j = {};
         for (var k in query) {
-            console.log(k, query[k]);
+            var temp = query[k];
+            //console.log(k, temp);
             var v = null;
-            try {
-                v = JSON.parse(query[k]);
-            } catch (err) {
-                console.error(err);
-                v = query[k];
+            if (typeof temp === "object") {
+                v = temp;
+            } else {
+                try {
+                    v = JSON.parse(temp);
+                } catch (err) {
+                    console.log(temp+" failed to parse");
+                    console.error(err);
+                    v = query[k];
+                }
             }
             j[k] = v;
         }
@@ -57,6 +64,7 @@ MongoClient.connect("mongodb://localhost:"+nconf.get('mongo:port')+"/"+nconf.get
                     var respCallback = function(json) {
                         return res.json(json);
                     };
+                    console.log(JSON.stringify(query));
                     return callback && callback(collection, query, respCallback);
                 }
             });
@@ -66,9 +74,8 @@ MongoClient.connect("mongodb://localhost:"+nconf.get('mongo:port')+"/"+nconf.get
     // Find Queries
     var find = basic(function(collection, query, callback) {
         var q = query.query || {};
-        var fields = query.fields || {};
         var options = query.options || {};
-        collection.find(q, fields, options).toArray(function(err, docs) {
+        collection.find(q, options).toArray(function(err, docs) {
             return callback(docs);
         });
     });
@@ -77,9 +84,8 @@ MongoClient.connect("mongodb://localhost:"+nconf.get('mongo:port')+"/"+nconf.get
     // FindOne Queries
     var findOne = basic(function(collection, query, callback) {
         var q = query.query || {};
-        var fields = query.fields || {};
         var options = query.options || {};
-        collection.findOne(q, fields, options, function(err, doc) {
+        collection.findOne(q, options, function(err, doc) {
             return callback(doc);
         });
     });
