@@ -12,6 +12,29 @@ npm install
 bower install
 ```
 
+## Usage
+
+```bash
+node index.js
+```
+
+### Configuration
+
+Uses [nconf](https://github.com/flatiron/nconf).
+
+See the default configuration file at [default_config.json](https://github.com/Glavin001/MongoViewer/blob/master/default_config.json).
+
+Alternatively you can use additional command line arguments:
+- `--server:port 8080`
+- `--mongo:port 27017`
+- `--mongo:database mongoviewer`
+
+For example:
+
+```bash
+node index.js --server:port 8081 --mongo:database testDb
+```
+
 ## API
 
 ### Version 1
