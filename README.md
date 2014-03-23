@@ -3,7 +3,38 @@ MongoViewer
 
 > MongoDB + Node.js + Express + D3
 
+-----
+
+## Install API Server CLI
+
+> MongoDB + Node.js + Express
+
+```bash
+npm install -g mongoviewer-server
+```
+
+## Usage
+
+Start your MongoViewer API Server:
+
+```bash
+mongoviewer-server
+```
+
+See [configuration options](https://github.com/Glavin001/MongoViewer#configuration) for customizing your API server.
+
+See the [API documentation](https://github.com/Glavin001/MongoViewer#api) for more details.
+
+
+
+-----
+
+> MongoDB + Node.js + Express + D3
+
 ![screenshot](https://raw.githubusercontent.com/Glavin001/MongoViewer/master/screenshots/main.png)
+
+
+# Developing
 
 ## Installation
 
