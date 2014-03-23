@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 // Dependencies
 var express = require('express');
 var mongodb = require('mongodb');
