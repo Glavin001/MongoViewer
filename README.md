@@ -26,6 +26,11 @@ See [db.collection.find](http://docs.mongodb.org/manual/reference/method/db.coll
 /api/v1/:collection/find
 ```
 
+##### Query Parameters:
+- query
+- fields
+- options
+
 ### `FindOne`
 
 See [db.collection.findOne](http://docs.mongodb.org/manual/reference/method/db.collection.findOne/).
@@ -33,6 +38,11 @@ See [db.collection.findOne](http://docs.mongodb.org/manual/reference/method/db.c
 ```
 /api/v1/:collection/findOne
 ```
+
+##### Query Parameters:
+- query
+- fields
+- options
 
 ### `Aggregate`
 
@@ -42,6 +52,9 @@ See [db.collection.aggregate](http://docs.mongodb.org/manual/reference/method/db
 /api/v1/:collection/aggregate
 ```
 
+##### Query Parameters:
+- pipeline
+- options
 
 ## Example API Usage
 
