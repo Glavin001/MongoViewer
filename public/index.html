@@ -33,7 +33,7 @@
   </head>
   <body>
     
-    <div class="container">
+    <div class="container-fluid">
         
         <div class="jumbotron">
           <h1>Welcome to MongoViewer</h1>
@@ -41,22 +41,37 @@
           <p><a class="btn btn-primary btn-lg" role="button" href="https://github.com/Glavin001/MongoViewer" target="_blank">Learn more</a></p>
         </div>
         
-        <div id="charts" class="container">
+        <div id="charts" class="">
             <h3>Discrete Bar Demo</h3>
-            <svg id="discreteBarDemo"></svg>
-            
+            <div class="row">
+                <svg id="discreteBarDemo-1" class="col-md-6"></svg>
+                <svg id="discreteBarDemo-2" class="col-md-6"></svg>
+            </div>
+
             <h3>Zipcodes Demo</h3>
             <h4>Return States with Populations above 10 Million</h4>
-            <svg id="zips1"></svg>
+            <div class="row">
+                <svg id="zips1-1" class="col-md-6"></svg>
+                <svg id="zips1-2" class="col-md-6"></svg>
+            </div>
 
             <h4>Return Average City Population by State</h4>
-            <svg id="zips2"></svg>
+            <div class="row">
+                <svg id="zips2-1" class="col-md-6"></svg>
+                <svg id="zips2-2" class="col-md-6"></svg>
+            </div>
 
             <h4>Return Largest Cities by State</h4>
-            <svg id="zips3"></svg>
+            <div class="row">
+                <svg id="zips3-1" class="col-md-6"></svg>
+                <svg id="zips3-2" class="col-md-6"></svg>
+            </div>
 
             <h4>Return Smallest Cities by State</h4>
-            <svg id="zips4"></svg>
+            <div class="row">
+                <svg id="zips4-1" class="col-md-6"></svg>
+                <svg id="zips4-2" class="col-md-6"></svg>
+            </div>
 
         </div>
 
