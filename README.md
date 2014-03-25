@@ -41,7 +41,7 @@ See the [API documentation](https://github.com/Glavin001/MongoViewer#api) for mo
 
 > MongoDB + Node.js + Express + D3
 
-![screenshot](https://raw.githubusercontent.com/Glavin001/MongoViewer/master/screenshots/main.png)
+[![screenshot](https://raw.githubusercontent.com/Glavin001/MongoViewer/master/screenshots/main.png)](https://raw.githubusercontent.com/Glavin001/MongoViewer/master/screenshots/main.png)
 
 
 ## Installation
